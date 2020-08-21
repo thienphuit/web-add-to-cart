@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
 import {CartContext} from '../contexts/Cart';
 
@@ -41,13 +42,13 @@ function TopMenu() {
   );
 }
 export default TopMenu;
-//   Navbar.propTypes = {
-//     light: PropTypes.bool,
-//     dark: PropTypes.bool,
-//     fixed: PropTypes.string,
-//     color: PropTypes.string,
-//     role: PropTypes.string,
-//     expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-//     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-//     // pass in custom element to use
-//   }
+  Navbar.propTypes = {
+    light: PropTypes.bool,
+    dark: PropTypes.bool,
+    fixed: PropTypes.string,
+    color: PropTypes.string,
+    role: PropTypes.string,
+    expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+    // pass in custom element to use
+  }
