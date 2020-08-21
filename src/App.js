@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {CartProvider} from './contexts/Cart'
 
 
 import {
@@ -12,12 +13,14 @@ import Products from './pages/Products';
 
 function App() {
   return (
-    <Router>
+   <CartProvider>
+      <Router>
     <div className="App">
      <TopMenu />
      <Route  path="/products" component={Products}/>
     </div>
     </Router>
+   </CartProvider>
   );
 }
 

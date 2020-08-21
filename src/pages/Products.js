@@ -10,7 +10,8 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import axios from 'axios'
+import axios from 'axios';
+import {CartContext} from '../contexts/Cart'
 
 class Products extends React.Component {
   state = {
@@ -33,7 +34,7 @@ class Products extends React.Component {
         <Row>
           {products.map((item) => (
             <Col sm="4">
-              <Card>
+              <Card key={item.id}>
                 <CardImg
                   top
                   width="100%"
@@ -43,7 +44,9 @@ class Products extends React.Component {
                 <CardBody>
                   <CardTitle>{item.name}</CardTitle>
                   <CardText>{item.descriptions}</CardText>
-                  <Button>Add Cart</Button>
+                  <CartContext.Consumer>
+                    {({addCart}) => <Button onClick={() => addCart(item)}>Add Cart</Button>}
+                  </CartContext.Consumer>
                 </CardBody>
               </Card>
             </Col>

@@ -7,9 +7,9 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarText,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import {CartContext} from '../contexts/Cart';
 
 function TopMenu() {
   return (
@@ -29,7 +29,13 @@ function TopMenu() {
             </NavLink>
           </NavItem>
         </Nav>
-        <NavbarText>Simple Text</NavbarText>
+       
+            <NavLink>
+              <CartContext.Consumer>
+                {({cartItem}) => (<Link to="/products">Cart({cartItem.length})</Link>)}
+              </CartContext.Consumer>
+            </NavLink>
+         
       </Collapse>
     </Navbar>
   );
